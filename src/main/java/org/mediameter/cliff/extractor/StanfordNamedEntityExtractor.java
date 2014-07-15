@@ -40,7 +40,7 @@ public class StanfordNamedEntityExtractor{
     
     // Don't change the order of this, unless you also change the default in the cliff.properties file
     public enum Model {
-        ENGLISH_ALL_3CLASS, ENGLISH_CONLL_4CLASS 
+        ENGLISH_ALL_3CLASS, ENGLISH_CONLL_4CLASS, ENGLISH_ALL_3CLASS_CASELESS, ENGLISH_CONLL_4CLASS_CASELESS
     }
     
     /**
@@ -63,6 +63,12 @@ public class StanfordNamedEntityExtractor{
             break;
         case ENGLISH_CONLL_4CLASS:
             initializeWithModelFiles("english.conll.4class.distsim.crf.ser.gz", "english.conll.4class.distsim.prop"); // makes it take about 30% longer :-(
+            break;
+        case ENGLISH_ALL_3CLASS_CASELESS:
+            initializeWithModelFiles("english.all.3class.caseless.distsim.crf.ser.gz", "english.all.3class.caseless.distsim.prop");
+            break;
+        case ENGLISH_CONLL_4CLASS_CASELESS:
+            initializeWithModelFiles("english.conll.4class.caseless.distsim.crf.ser.gz", "english.conll.4class.caseless.distsim.prop"); 
             break;
         }
         demonyms = new WikipediaDemonymMap();
